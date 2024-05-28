@@ -1,0 +1,3 @@
+[submodule "DeploymentService"]
+	path = DeploymentService
+	url = http://60.205.188.102:12345/cloud-collaboration-platform/deploymentservice.git
