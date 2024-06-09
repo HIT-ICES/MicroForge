@@ -1,3 +1,24 @@
 [submodule "DeploymentService"]
 	path = DeploymentService
-	url = http://60.205.188.102:12345/cloud-collaboration-platform/deploymentservice.git
+	url = https://github.com/HIT-ICES/DeploymentService.git
+[submodule "MicroForgeFront"]
+	path = MicroForgeFront
+	url = https://github.com/HIT-ICES/MicroForgeFront.git
+[submodule "SvcService"]
+	path = SvcService
+	url = https://github.com/HIT-ICES/SvcService.git
+[submodule "RouteControlService"]
+	path = RouteControlService
+	url = https://github.com/HIT-ICES/RouteControlService.git
+[submodule "ImageService"]
+	path = ImageService
+	url = https://github.com/HIT-ICES/ImageService.git
+[submodule "ApplicationService"]
+	path = ApplicationService
+	url = https://github.com/HIT-ICES/ApplicationService.git
+[submodule "InstanceService"]
+	path = InstanceService
+	url = https://github.com/HIT-ICES/InstanceService.git
+[submodule "RouteTraceService"]
+	path = RouteTraceService
+	url = https://github.com/HIT-ICES/RouteTraceService.git
