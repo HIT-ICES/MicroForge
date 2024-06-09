@@ -1,7 +1,7 @@
 # MicroForge: An Integrated Platform for Accelerating Experiments in Microservice Research
 
 The platform is constructed using the Kubernetes (K8s) API and incorporates key components like Istio and JMeter. It's intended to serve as a specialized experimental platform for microservice research. This platform encompasses various essential functions, such as managing microservices, instances, monitoring systems, measuring stress levels, managing route policies, and handling container images.
-![[Architectural Design of MicroForge]](pic/Pasted%20image%2020240528141215.png)
+![[Architectural Design of MicroForge]](pic/Architectural.png)
 ## Main Function
 
 - **Microservice Management：** This module is utilized for managing pertinent information regarding microservices within the system, encompassing fundamental details of microservices and their interdependencies. Users can freely add or remove microservices within the system using this module.
@@ -25,4 +25,4 @@ The platform is constructed using the Kubernetes (K8s) API and incorporates key 
 The platform consists of multiple microservices, each with its own deployment profile. The repositories for all the microservices are linked as submodules in this project. you can view the deployment profiles in each of the microservice repositories and deploy the appropriate microservices as needed.
 
 Visit [localhost:8080] after deployment is complete
-![[FrontEnd]](pic/Pasted%20image%2020240528144229.png)
+![[FrontEnd]](pic/FrontEnd.png)
