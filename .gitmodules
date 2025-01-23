@@ -22,3 +22,9 @@
 [submodule "RouteTraceService"]
 	path = RouteTraceService
 	url = https://github.com/HIT-ICES/RouteTraceService.git
+[submodule "DataSourceManager"]
+	path = DataSourceManager
+	url = https://github.com/HIT-ICES/DataSourceManager.git
+[submodule "AlgorithmService"]
+	path = AlgorithmService
+	url = https://github.com/HIT-ICES/AlgorithmService.git
