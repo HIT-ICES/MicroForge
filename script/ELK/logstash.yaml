@@ -1,0 +1,93 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: logstash-conf
+  namespace: elk
+data:
+  logstash.conf: |-
+    input{
+           tcp{
+               port => 5044
+               type => "atp"
+               codec => "json_lines"
+           }
+    }
+
+    output{
+        if [type] == 'atp'{
+            elasticsearch {
+  
+                hosts => "http://es-es-http:9200"
+        
+                index => "elk-cluster-logstash-%{[applicationName]}-%{+YYYY.MM.dd}"
+
+                user => "elastic"
+
+                password => "Ve254P7Vg08Bw8EO4CH8Q6sI"
+
+            }
+        }
+    }
+  logstash.yml: |-
+    http.host: "0.0.0.0"
+    xpack.monitoring.elasticsearch.hosts: [ "http://es-es-http:9200" ]
+    xpack.monitoring.elasticsearch.username: "elastic"
+    xpack.monitoring.elasticsearch.password: "Ve254P7Vg08Bw8EO4CH8Q6sI"
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: logstash
+  namespace: elk
+  labels: 
+    app: logstash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logstash
+  template:
+    metadata:
+      labels:
+        app: logstash
+    spec:
+      containers:
+      - name: logstash
+        image: docker.elastic.co/logstash/logstash:7.14.1
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/logstash/config/logstash.yml
+          subPath: logstash.yml
+          readOnly: true
+        - name: config
+          mountPath: /usr/share/logstash/pipeline/logstash.conf
+          subPath: logstash.conf
+          readOnly: true
+        - name: elasticsearch-certs
+          readOnly: true
+          mountPath: /es/certificates/
+      volumes:
+      - name: config
+        configMap:
+          defaultMode: 420
+          name: logstash-conf
+      - name: elasticsearch-certs
+        secret:
+          secretName: es-es-http-certs-public
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: logstash
+  name: logstash-http
+  namespace: elk
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 5044
+    protocol: TCP
+    targetPort: 5044
+  selector:
+    app: logstash
