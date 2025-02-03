@@ -20,7 +20,7 @@ The platform is constructed using the Kubernetes (K8s) API and incorporates key 
 - Elaticsearch >= 7.14.1
 - Kibana >= 7.14.1
 - Logstash >= 7.14.1
-  Please make sure that you have installed and configured the above basic requirements, the above configuration for the author tested, according to the needs of their own choice of the above version, but pay attention to the version dependencies between the tools.
+  Please make sure that you have installed and configured the above basic requirements, the above configuration for the author tested, according to the needs of their own choice of the above version, but pay attention to the version dependencies between the tools. The installation script for the base environment can be found in the **_script_**.
 ## Installation and Deployment
 The platform consists of multiple microservices, each with its own deployment profile. The repositories for all the microservices are linked as submodules in this project. you can view the deployment profiles in each of the microservice repositories and deploy the appropriate microservices as needed.
 
