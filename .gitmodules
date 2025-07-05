@@ -28,3 +28,6 @@
 [submodule "AlgorithmService"]
 	path = AlgorithmService
 	url = https://github.com/HIT-ICES/AlgorithmService.git
+[submodule "ExecutorService"]
+	path = ExecutorService
+	url = https://github.com/HIT-ICES/ExecutorService.git
